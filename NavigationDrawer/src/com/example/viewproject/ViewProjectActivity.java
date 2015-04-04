@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.tutecentral.navigationdrawer.R;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
@@ -49,7 +50,8 @@ public class ViewProjectActivity extends Activity {
 				return false;
 			}
 		});
-		
+		ActionBar bar = getActionBar();
+		bar.setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
@@ -71,6 +73,7 @@ public class ViewProjectActivity extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
+		
 		int id = item.getItemId();
 		if (id == R.id.notificationicon) {
 			Toast.makeText(getApplicationContext(), "Notification Here", Toast.LENGTH_SHORT).show();
@@ -78,6 +81,13 @@ public class ViewProjectActivity extends Activity {
 		}else if(id == R.id.search_icon_id){
 			Toast.makeText(getApplicationContext(), "Search Here", Toast.LENGTH_SHORT).show();
 		
+		}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            if (getParentActivityIntent() == null) {
+                onBackPressed();
+            } 
+            return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
