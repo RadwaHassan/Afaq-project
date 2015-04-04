@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -21,6 +23,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -108,14 +112,22 @@ public class MainActivity extends Activity {
 			}
 		}
 
-	}
+	}//onCreate Method
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+		getMenuInflater().inflate(R.menu.home_actionbar, menu);
+        // Add SearchWidget.
+        SearchManager searchManager = (SearchManager) getSystemService( Context.SEARCH_SERVICE );
+        SearchView searchView = (SearchView) menu.findItem( R.id.search_icon_id ).getActionView();
+
+        searchView.setSearchableInfo( searchManager.getSearchableInfo( getComponentName() ) );
+
+        return super.onCreateOptionsMenu( menu );
+	}//onCreateOptionsMenu Method
+	
+
 
 	public void SelectItem(int possition) {
 
@@ -258,11 +270,18 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// The action bar home/up action should open or close the drawer.
 		// ActionBarDrawerToggle will take care of this.
-		if (mDrawerToggle.onOptionsItemSelected(item)) {
+		int id = item.getItemId();
+		if (id == R.id.notificationicon) {
+			Toast.makeText(getApplicationContext(), "Notification Here", Toast.LENGTH_SHORT).show();
+			return true;
+		}else if(id == R.id.search_icon_id){
+			Toast.makeText(getApplicationContext(), "Search Here", Toast.LENGTH_SHORT).show();
+		return true;
+		}else if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
+		return super.onOptionsItemSelected(item);
 
-		return false;
 	}
 
 	private class DrawerItemClickListener implements

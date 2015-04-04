@@ -1,12 +1,18 @@
 package com.example.customcellproject;
 
+import com.example.viewproject.ViewProjectActivity;
 import com.tutecentral.navigationdrawer.R;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class CustomList2 extends Fragment{
@@ -29,6 +35,17 @@ public class CustomList2 extends Fragment{
 		list = (ListView) getActivity().findViewById(R.id.list);
 		final ListAdapter adapter = new ListAdapter(getActivity().getApplicationContext(), R.layout.list_row, R.id.artist, values);
 		list.setAdapter(adapter);
+		list.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				Intent i = new Intent(getActivity(),ViewProjectActivity.class);
+				startActivity(i);
+				
+			}
+		});
+		
 	}
 
 }

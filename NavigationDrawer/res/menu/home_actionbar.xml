@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/search_icon_id"
+        android:icon="@drawable/search_icon"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/search"
+        android:actionViewClass="android.widget.SearchView">
+    </item>
+    <item
+        android:id="@+id/notificationicon"
+        android:icon="@drawable/notification_icon"
+        android:showAsAction="always"
+        android:title="@string/notiication_string"
+        android:visible="true">
+    </item>
+
+</menu>

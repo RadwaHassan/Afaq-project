@@ -7,5 +7,22 @@
     
        <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
+    
+    <string name="notiication_string">Notification</string>
+    <string name="search">Search</string>
+    <string name="title_activity_search_result">SearchResultActivity</string>
+    <string name="title_activity_messages">MessagesActivity</string>
+    <string name="mesages">Messages</string>
+    <string name="user_friend_name">Suzan</string>
+    <string name="title_activity_view_project">ViewProjectActivity</string>
+    <string name="project_name">How to build a house?</string>
+    <string name="creation_date">12 March 2009</string>
+    <string name="user_name">Suzan Nowak</string>
+    <string name="created">"Created: "</string>
+    <string name="last_modified_date">28 April 2012</string>
+    <string name="last_modified">"Last Modified: "</string>
+    <string name="description">Description</string>
+    <string name="decsription_details">My project here is to help others build their own personal home with ease.</string>
+    <string name="audio_file_here">Audio File Here</string>
 
 </resources>
