@@ -14,8 +14,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -50,6 +52,26 @@ public class ViewProjectActivity extends Activity {
 			}
 		});
 		
+		ImageButton btnLike = (ImageButton) findViewById(R.id.imageBtnUp);
+		ImageButton btnUnlike = (ImageButton) findViewById(R.id.imageBtnDown);
+		
+		//like button action
+		btnLike.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getApplicationContext(), "Project Liked", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		//unlike button action
+		btnUnlike.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getApplicationContext(), "Project unliked", Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	@Override
