@@ -29,6 +29,8 @@ public class ListAdapter extends ArrayAdapter{
 		View view = inflater.inflate(R.layout.list_row,parent,false);
 		
 		return view;
+		
+		
 	}
 
 }
